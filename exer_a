@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int aloca();
+
+int media( p, r);
+int maior( p, r);
+
+
+int main()
+{
+    int i =0;
+    int r =0;
+
+
+    printf("quantos numeros ira inserir: ");
+    scanf("%d",&r);
+
+
+    int *p = aloca(r);
+
+
+
+    for(i=0;i<r;i++){
+
+        scanf("%d",&p[i]);
+    }
+
+
+    media(p,r);
+
+    maior(p,r);
+    return 0;
+}
+
+
+
+int media(int *p, int r){
+
+    int i = 0;
+    int soma = 0;
+    int total = 0;
+
+
+ for(i=0;i<r;i++)
+    {
+        soma = soma + *(p+i);
+    }
+    total = soma / r;
+
+    printf(" a media do vetor e %d ", total );
+
+
+}
+
+int maior(int *p, int r){
+
+    int i = 0;
+    int m = 0;
+
+ for(i=0;i<r;i++)
+    {
+        if(m<*(p+i)){
+            m = *(p+i);
+        }
+    }
+
+       printf(" o maior e  %d ", m );
+
+
+}
+
+
+int aloca(int r )
+{
+
+    int *p;
+    p = (int *)malloc(r * sizeof(int));
+
+    if(p == NULL){
+        printf("erro ao alocar");
+        return 1 ;
+    }
+
+return p;
+}
+
+
+
